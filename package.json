@@ -1,0 +1,16 @@
+{
+  "name": "js-tasks",
+  "type": "module",  
+  "version": "1.0.0",
+  "scripts": {
+  "test": "set NODE_OPTIONS=--experimental-vm-modules && jest",
+  "test:watch": "set NODE_OPTIONS=--experimental-vm-modules && jest --watchAll"
+},
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testMatch": ["**/task_*/**/*.test.js"],
+    "transform": {}  
+  }
+}
