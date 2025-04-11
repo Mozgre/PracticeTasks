@@ -1,0 +1,263 @@
+/* Базовые стили */
+:root {
+  /* Светлая тема */
+  --bg-color: #f8fafc;
+  --content-bg: #ffffff;
+  --text-color: #1e293b;
+  --primary: #4f46e5;
+  --border-color: #e2e8f0;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme {
+  /* Темная тема */
+  --bg-color: #0f172a;
+  --content-bg: #1e293b;
+  --text-color: #f8fafc;
+  --primary: #818cf8;
+  --border-color: #334155;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Контейнеры */
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.app-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Шапка */
+.app-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.toggle-icon {
+  font-size: 20px;
+  color: white;
+}
+
+/* Основное содержимое */
+.main-content {
+  background-color: var(--content-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+/* Подвал */
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* Стили для TaskList */
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.task-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--content-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.task-submit-btn {
+  padding: 0.75rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-submit-btn:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.task-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--content-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.task-checkbox {
+  min-width: 20px;
+  min-height: 20px;
+  accent-color: var(--primary);
+  margin-top: 0.25rem;
+  cursor: pointer;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-content h3 {
+  margin: 0 0 0.25rem 0;
+  color: var(--text-color);
+}
+
+.task-content p {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.task-item.completed h3,
+.task-item.completed p {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-delete-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.task-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .app-content {
+    padding: 1rem;
+  }
+}
